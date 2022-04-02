@@ -4,7 +4,7 @@ try {
 $pdo = new PDO("mysql:host=$host;dbname=$database", $username, //adatbázis hozzáférés
 $password ,array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 $pdo->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
-$utasitas = "select uzenet, datum, nev from uzenet"; //lekérdezés
+$utasitas = "select uzenet, datum, nev from uzenet order by datum desc"; //lekérdezés
 $eredm = $pdo->query($utasitas);
 }
 catch (PDOException $e) {
