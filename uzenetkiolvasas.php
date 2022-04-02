@@ -1,10 +1,10 @@
-
 <?php
+include_once("connect.conf.php");
 try {
-$pdo = new PDO('mysql:host=localhost;dbname=gyakorlat7', 'root', //adatbázis hozzáférés
-'',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+$pdo = new PDO("mysql:host=$host;dbname=$database", $username, //adatbázis hozzáférés
+$password ,array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 $pdo->query('SET NAMES utf8 COLLATE utf8_hungarian_ci');
-$utasitas = "select uzenet, kuld_ido, felhasznalonev from felhasznalok sort by kuld_ido desc"; //lekérdezés
+$utasitas = "select uzenet, datum, nev from uzenet"; //lekérdezés
 $eredm = $pdo->query($utasitas);
 }
 catch (PDOException $e) {
@@ -25,7 +25,7 @@ border: 1px solid black;
  <body>
 <table>
 <?php foreach ($eredm as $sor)
-print "<tr><td>" . $sor['id'] . "</td>" . " <td>" .$sor['csaladi_nev'] . "</td>" . "<td>" .$sor['uto_nev'] . "</td>"  . "<td>" .$sor['bejelentkezes'] . "</td>" . "<td>" .$sor['jelszo'] . "</td></tr>"; //kiírás
+print "<tr><td>" . $sor['uzenet'] . "</td>" . " <td>" .$sor['nev'] . "</td>" . "<td>" .$sor['datum'] . "</td></tr>"; //kiírás
 ?>
 </table>
  </body>
