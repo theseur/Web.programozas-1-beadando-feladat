@@ -35,9 +35,25 @@ else
         include_once("php/feltolt.php");
 
     }
-    else if($_GET["page"]=="mao")
+    else if($_GET["page"]=="map")
     {
         include_once("php/terkep.php");
+
+    }
+
+    else if($_GET["page"]=="belep" || $_GET["page"]=="regisztr")
+    {
+        include_once("pelda.html");
+
+    }
+    else if($_GET["page"]=="regisztral")
+    {
+        include_once("php/regisztracio.php");
+
+    }
+    else if($_GET["page"]=="belepes")
+    {
+        include_once("php/belepes.php");
 
     }
 
