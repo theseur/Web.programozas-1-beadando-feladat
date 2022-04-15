@@ -1,4 +1,8 @@
-
+<?php
+// Start the session
+header('Content-Type: text/html; charset=utf-8');
+session_start();
+?>
 <?php
 include_once("connect.php");
 if(!isset($_GET["page"]))
@@ -56,6 +60,12 @@ else
         include_once("php/belepes.php");
 
     }
+    else if($_GET["page"]=="kilep")
+    {
+        include_once("php/kilepes.php");
+
+    }
+
 
 }
 ?>
