@@ -1,8 +1,8 @@
 <?php
 // Start the session
 header('Content-Type: text/html; charset=utf-8');
+session_start();
 ?>
-
 <?php
 include_once("connect.php");
 if(!isset($_GET["page"]))
@@ -14,7 +14,7 @@ else
 {
     if(($_GET["page"]=="kapcsolat"))
     {
-        include_once("kapcsolat.html");
+        include_once("kapcsolatform.php");
     }
     else if ($_GET["page"]=="kapcsolatkuldes")
     {
