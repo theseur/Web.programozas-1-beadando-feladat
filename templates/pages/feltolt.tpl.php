@@ -1,7 +1,3 @@
-<?php
-// Start the session
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +9,6 @@ session_start();
 </head>
 <body>
 
-<h1>Feltöltés a galériába:</h1>
 <?php
     // Alkalmazás logika:
     include('config.inc.php');
@@ -55,10 +50,16 @@ session_start();
     }
     else
     {
-        echo "<h1>A képfeltöltéshez jelentkezzen be.</h1>";
+        echo "<h1>Nincs bejelentkezve!</h1>";
     }
-?>
+    
+    
+       
 
+    
+    // Megjelenítés logika:
+?>
+    <h1>Feltöltés a galériába:</h1>
 <?php
     if (!empty($uzenet))
     {
@@ -68,7 +69,7 @@ session_start();
         echo '</ul>';
     }
 ?>
-    <form action="index.old.php?page=feltotles" method="post"
+    <form action="index.php?page=feltotles" method="post"
                 enctype="multipart/form-data">
         <label>Első:
             <input type="file" name="elso" required>
