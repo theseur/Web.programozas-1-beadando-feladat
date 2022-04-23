@@ -1,71 +1,31 @@
 <?php
-// Start the session
-header('Content-Type: text/html; charset=utf-8');
 session_start();
+header('Content-Type: text/html; charset=utf-8');
+include('./includes/config.inc.php');
+include('./connect.php');
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
 <?php
-include_once("connect.php");
-if(!isset($_GET["page"]))
-{
-    echo 'fÖoldal';
-     include("aside.html"); 
+//$keres = current($oldalak);
+$keres = $oldalak['/'];
+if (isset($_GET['oldal'])) {
+	if (isset($oldalak[$_GET['oldal']]) && file_exists("./templates/pages/{$oldalak[$_GET['oldal']]['fajl']}.tpl.php")) {
+		$keres = $oldalak[$_GET['oldal']];
+	}
+	else if (isset($extrak[$_GET['oldal']]) && file_exists("./templates/pages/{$extrak[$_GET['oldal']]['fajl']}.tpl.php")) {
+		$keres = $extrak[$_GET['oldal']];
+	}
+	else { 
+		$keres = $hiba_oldal;
+		//header("HTTP/1.0 404 Not Found");
+	}
 }
-else
-{
-    if(($_GET["page"]=="kapcsolat"))
-    {
-        include_once("kapcsolat.html");
-    }
-    else if ($_GET["page"]=="kapcsolatkuldes")
-    {
-        include_once("php/kapcsolat.php");
-    }
-    else if($_GET["page"]=="uzenetkiolvasas")
-    {
-        include_once("uzenetkiolvasas.php");
 
-    }
-    else if($_GET["page"]=="video")
-    {
-        include_once("VideoTest.php");
-    }
-    else if($_GET["page"]=="galeria")
-    {
-        include_once("php/gallery.php");
-
-    }
-    else if($_GET["page"]=="feltotles")
-    {
-        include_once("php/feltolt.php");
-
-    }
-    else if($_GET["page"]=="map")
-    {
-        include_once("php/terkep.php");
-
-    }
-
-    else if($_GET["page"]=="belep" || $_GET["page"]=="regisztr")
-    {
-        include_once("pelda.html");
-
-    }
-    else if($_GET["page"]=="regisztral")
-    {
-        include_once("php/regisztracio.php");
-
-    }
-    else if($_GET["page"]=="belepes")
-    {
-        include_once("php/belepes.php");
-
-    }
-    else if($_GET["page"]=="kilep")
-    {
-        include_once("php/kilepes.php");
-
-    }
-
-
-}
+include("./templates/index.tpl.php"); 
 ?>
+</html>

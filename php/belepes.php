@@ -1,11 +1,5 @@
 <?php
-// Start the session
 session_start();
-?>
-
-
-<?php
-include("aside.html"); 
 
     if(isset($_POST['felhasznalo']) && isset($_POST['jelszo'])) {
         try {
@@ -30,13 +24,7 @@ include("aside.html");
         }      
     }
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Belépés</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
+
         <?php if(isset($row)) { ?>
             <?php if($row) { ?>
                 <h1>Bejelentkezett:</h1>
@@ -44,8 +32,5 @@ include("aside.html");
                 Név: <strong><?= $row['csaladi_nev']." ".$row['uto_nev'] ?></strong>
             <?php } else { ?>
                 <h1>A bejelentkezés nem sikerült!</h1>
-                <a href="pelda.html" >Próbálja újra!</a>
             <?php } ?>
-        <?php } ?>
-    </body>
-</html>
+        <?php } include('./aside.html')?>

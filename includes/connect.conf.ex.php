@@ -3,6 +3,4 @@ $host="";
 $username="";
 $password="";
 $database="";
-
-
 ?>

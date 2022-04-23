@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-	</head>
-	<body>
+
 <?php
+
 	//szerver oldali ellenőrzés példa
 
 	if(!isset($_POST['nev']) || strlen($_POST['nev']) < 5)
@@ -27,8 +23,7 @@
 	echo "<pre>";
 	var_dump($_POST);
 	echo "</pre>";
-	$sth = $pdo->prepare("INSERT INTO `beadando-maltai`.`uzenet` (`id`, `nev`, `email`, `uzenet`, `datum`) VALUES (NULL, ?, ?, ?, CURRENT_TIMESTAMP);");
+	$sth = $pdo->prepare("INSERT INTO `maltese-charity`.`uzenet` (`id`, `nev`, `email`, `uzenet`, `datum`) VALUES (NULL, ?, ?, ?, CURRENT_TIMESTAMP);");
 	$sth->execute(array($_POST['nev'], $_POST['email'],$_POST['szoveg']));
 ?>
-	</body>
-</html>
+	
