@@ -5,7 +5,6 @@
 	</head>
 	<body>
 <?php
-include("aside.html"); 
 	//szerver oldali ellenőrzés példa
 
 	if(!isset($_POST['nev']) || strlen($_POST['nev']) < 5)
@@ -24,12 +23,13 @@ include("aside.html");
 		exit("Hibás szöveg: ".$_POST['szoveg']);
 	}
 
-	echo "Kapott értékek: ";
-	echo "<pre>";
-	var_dump($_POST);
-	echo "</pre>";
+	echo "Sikeres! ";
+	//echo "<pre>";
+	//var_dump($_POST);
+	//echo "</pre>";
 	$sth = $pdo->prepare("INSERT INTO `beadando-maltai`.`uzenet` (`id`, `nev`, `email`, `uzenet`, `datum`) VALUES (NULL, ?, ?, ?, CURRENT_TIMESTAMP);");
 	$sth->execute(array($_POST['nev'], $_POST['email'],$_POST['szoveg']));
 ?>
+<a href="index.php">Fooldal</a>
 	</body>
 </html>

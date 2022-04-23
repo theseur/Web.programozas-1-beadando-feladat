@@ -14,7 +14,7 @@ else
 {
     if(($_GET["page"]=="kapcsolat"))
     {
-        include_once("kapcsolat.html");
+        include_once("kapcsolatform.php");
     }
     else if ($_GET["page"]=="kapcsolatkuldes")
     {
