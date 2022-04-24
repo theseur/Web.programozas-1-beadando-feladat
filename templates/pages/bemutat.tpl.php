@@ -17,5 +17,5 @@
     elvárásai szerint végezzük munkánkat, amelynek legfõbb értékei a közösség ereje, a feladathoz való alázat, a magas szintű szakmai felkészültség,
      de talán legfontosabbként a rászoruló ember valódi szolgálata.
    </p>
-   <image class="rounded m-2 wm-50"  src="./images/bemut.png">
+   <image class="img-fluid rounded m-2 wm-50"  src="./images/bemut.png">
 </div>
